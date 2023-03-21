@@ -1,4 +1,6 @@
+import { StyleSheet } from "@/theme/StyleSheet";
 import { useTheme } from "@/theme/ThemeProvider";
+import { link } from "fs";
 import { useState } from "react";
 import Box from "../Box";
 import Button from "../Button";
@@ -25,12 +27,29 @@ export default function NavBar() {
       }
     }
   }
+
+  const linkModalStyles = {
+    styleSheet: {
+      flexDirection: 'row',
+      columnGap: '11px',
+      alignItems: 'center',
+    }
+  }
+
   const numberStyles = {
     styleSheet: {
       fontWeight: '700',
       display: { xs: 'none', lg: 'flex' }
     }
   }
+
+  const numberModalStyles = {
+    styleSheet: {
+      fontWeight: '700',
+    }
+  }
+
+
   return (
     <Box tag="nav" styleSheet={{
       flexDirection: 'row',
@@ -38,15 +57,15 @@ export default function NavBar() {
       justifyContent: 'space-between',
       width: '100%',
       position: 'absolute',
-      paddingTop: { xs: '24px', lg: '40px' },
+      paddingTop: { xs: '24px', sm: '0px', lg: '40px' },
       paddingLeft: { xs: '24px', md: '39px', lg: '55px' },
-      paddingRight: { xs: '24px' }
+      paddingRight: { xs: '24px', sm: '0px' }
     }}>
       <Icon name="space" />
-      <Button onClick={() => setShowModal(true)} styleSheet={{ display: { xs: 'flex', sm: 'none' }}}>
+      <Button onClick={() => setShowModal(true)} styleSheet={{ display: { xs: 'flex', sm: 'none' } }}>
         <Icon name="menu" styleSheet={{ color: theme.colors.secondary }} viewBox={16} />
       </Button>
-      {showModal && <Modal title="modal" onClose={() => setShowModal(false)}>Hello!</Modal>}
+      {showModal && <Modal title="modal" onClose={() => setShowModal(false)}><Links linkStyles={linkModalStyles} numberStyles={numberModalStyles}/></Modal>}
       <Box styleSheet={{
         width: { xs: '20vw', lg: '22vw', xl: '32vw' },
         borderBottom: '1px solid #FFFFFF',
@@ -64,11 +83,19 @@ export default function NavBar() {
         backdropFilter: 'blur(40.7742px)',
         display: { xs: 'none', sm: 'flex' }
       }}>
-        <Link href="/" variant="navText" {...linkStyles}><Text variant="navText" {...numberStyles}>00</Text>Home</Link>
-        <Link href="/destination" variant="navText" {...linkStyles}><Text variant="navText" {...numberStyles}>01</Text> Destination</Link>
-        <Link href="/crew" variant="navText" {...linkStyles}><Text variant="navText" {...numberStyles}>02</Text> Crew</Link>
-        <Link href="/tecnhology" variant="navText" {...linkStyles}><Text variant="navText" {...numberStyles}>03</Text> Tecnhology</Link>
+        <Links linkStyles={linkStyles} numberStyles={numberStyles}/>
       </Box>
     </Box>
+  )
+}
+
+const Links = ({ linkStyles, numberStyles }: StyleSheet) => {
+    return (
+    <>
+      <Link href="/" variant="navText" {...linkStyles}><Text variant="navText" {...numberStyles}>00</Text>Home</Link>
+      <Link href="/destination" variant="navText" {...linkStyles}><Text variant="navText" {...numberStyles}>01</Text> Destination</Link>
+      <Link href="/crew" variant="navText" {...linkStyles}><Text variant="navText" {...numberStyles}>02</Text> Crew</Link>
+      <Link href="/tecnhology" variant="navText" {...linkStyles}><Text variant="navText" {...numberStyles}>03</Text> Tecnhology</Link>
+    </>
   )
 }

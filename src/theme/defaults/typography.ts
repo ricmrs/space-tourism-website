@@ -23,10 +23,12 @@ export const typography = {
       },
     },
     heading4: {
-      letterSpacing: '2px',
+      letterSpacing: {
+        xs: '1.25px',
+        sm: '2px'
+      },
       fontSize: {
-        xs: '16px',
-        sm: '24px',
+        xs: '20px',
         md: '32px',
       },
     },
@@ -36,7 +38,7 @@ export const typography = {
       fontSize: {
         xs: '16px',
         sm: '20px',
-        md: '28px',
+        lg: '28px',
       },
     },
     subheading1: {
@@ -51,8 +53,9 @@ export const typography = {
       letterSpacing: '2.7px',
       fontFamily: "'Barlow Condensed', sans-serif",
       fontSize: {
-        xs: '14px',
-        md: '16px',
+        xs: '16px',
+        sm: '14px',
+        lg: '16px',
       },
     },
     body: {

@@ -14,16 +14,18 @@ export default function HomePage() {
       backgroundRepeat: 'no-repeat',
       backgroundPosition: 'center',
       width: '100%',
-      height: '100%',
-      flexDirection: { lg: 'row' }
+      minHeight: '100%',
+      flexDirection: { lg: 'row' },
+      alignItems: 'center',
+      paddingBottom: { xs: '81px' },
+      paddingLeft: { xs: '24px', lg: '165px' },
+      paddingRight: { xs: '24px' },
+      paddingTop: { xs: '112px', sm: '202px', lg: '387px' },
+      gap: { xs: '80px', lg: '12vw', xl: '20vw' }
     }}>
       <Box styleSheet={{
         width: { xs: '325px', sm: '450px'},
         textAlign: 'center',
-        marginBottom: { xs: '81px', sm: '156px',  lg: '131px'},
-        marginLeft: { xs: 'auto', lg: '165px'},
-        marginRight: { xs: 'auto' },
-        marginTop: { xs: '112px', sm: '202px', lg: '350px'},
       }}>
         <Text variant="heading5" colorVariant="secondary">So, you want to travel to</Text>
         <Text variant="heading1">Space</Text>
@@ -35,11 +37,8 @@ export default function HomePage() {
         type="rounded" 
         colorVariant="tertiary"
         enablePulseEffect={true}
-        styleSheet={{ 
-          marginTop: { xs: '0px', lg: '380px' }, 
-          marginRight: { xs: 'auto', lg: '165px'}, 
-          marginLeft: { xs: 'auto', lg: '10vw', xl: '20vw' },
-          marginBottom: { xs: '48px', sm: '90px', lg: '0px' }
+        styleSheet={{
+          alignSelf: 'center' 
         }}
       >
         <Text colorVariant="primary" variant="heading4">Explore</Text>

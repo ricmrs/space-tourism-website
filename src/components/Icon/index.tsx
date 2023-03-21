@@ -19,9 +19,9 @@ export default function Icon({ name, styleSheet, viewBox, ...props }: IconProps)
     <BaseComponent
       as="svg"
       styleSheet={{
-        ...styleSheet,
         width: { xs: iconSizes.xs, md: iconSizes.md },
         height: { xs: iconSizes.xs, md: iconSizes.md },
+        ...styleSheet,
       }}
       color="inherit"
       fill="currentColor"

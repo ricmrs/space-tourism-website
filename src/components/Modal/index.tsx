@@ -2,6 +2,7 @@ import React, { createRef, useEffect, useState } from "react";
 import ReactDOM from "react-dom";
 import styled from "styled-components";
 import Button from "../Button";
+import Icon from "../Icon";
 
 interface ModalProps {
   onClose: () => void;
@@ -38,11 +39,10 @@ function Modal({ onClose, children, title }: ModalProps) {
       <StyledModalWrapper ref={modalWrapperRef}>
         <StyledModal>
           <StyledModalHeader>
-            <Button href="#" onClick={handleCloseClick}>
-              x
+            <Button href="#" onClick={handleCloseClick} textVariant="heading4" styleSheet={{ backgroundColor: 'transparent' }}>
+              <Icon name="close" styleSheet={{ color: '#D0D6F9', height: '24px', width: '24px' }} viewBox={28}/>
             </Button>
           </StyledModalHeader>
-          {title}
           <StyledModalBody>{children}</StyledModalBody>
         </StyledModal>
       </StyledModalWrapper>
@@ -60,7 +60,10 @@ function Modal({ onClose, children, title }: ModalProps) {
 };
 
 const StyledModalBody = styled.div`
-  padding-top: 10px;
+  padding-top: 65px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
 `;
 
 const StyledModalHeader = styled.div`
@@ -70,16 +73,16 @@ const StyledModalHeader = styled.div`
 `;
 
 const StyledModal = styled.div`
-  background: white;
+  background: rgb(11, 13, 23, 0.04);
+  backdrop-filter: blur(40.7742px);
   height:100%;
   width:100%;
-  border-radius: 15px;
-  padding: 15px;
+  padding: 40px 30px;
 `;
 
 const StyledModalWrapper = styled.div`
-  width: 500px;
-  height: 600px;
+  width: 67vw;
+  height: 100%;
 `;
 
 const StyledModalOverlay = styled.div`
@@ -89,7 +92,7 @@ const StyledModalOverlay = styled.div`
   width: 100%;
   height: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
   background-color: rgba(0, 0, 0, 0.5);
 `;

@@ -16,7 +16,7 @@ const GlobalStyle = createGlobalStyle`
   }
   #__next {
     width: 100%;
-    overflow: hidden;
+    overflow: scroll;
     display: flex;
     flex: 1;
     flex-direction: column;
