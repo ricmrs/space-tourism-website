@@ -1,4 +1,4 @@
-import React, { createRef, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom";
 import styled from "styled-components";
 import Button from "../Button";
@@ -7,27 +7,26 @@ import Icon from "../Icon";
 interface ModalProps {
   onClose: () => void;
   children: React.ReactNode;
-  title: string;
 }
 
-function Modal({ onClose, children, title }: ModalProps) {
+function Modal({ onClose, children }: ModalProps) {
   const [isBrowser, setIsBrowser] = useState(false);
 
   const modalWrapperRef = React.useRef<HTMLDivElement>(null);
 
-  const backDropHandler = (e: MouseEvent) => {
-    if (modalWrapperRef.current === null) return;
-    if (!modalWrapperRef?.current?.contains(e.target as Node)) {
-      onClose();
-    }
-  }
-
   useEffect(() => {
+    const backDropHandler = (e: MouseEvent) => {
+      if (modalWrapperRef.current === null) return;
+      if (!modalWrapperRef?.current?.contains(e.target as Node)) {
+        onClose();
+      }
+    }
+
     setIsBrowser(true);
 
     window.addEventListener('click', backDropHandler);
     return () => window.removeEventListener('click', backDropHandler);
-  }, []);
+  }, [onClose]);
 
   const handleCloseClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();

@@ -1,6 +1,5 @@
 import { StyleSheet } from "@/theme/StyleSheet";
 import { useTheme } from "@/theme/ThemeProvider";
-import { link } from "fs";
 import { useState } from "react";
 import Box from "../Box";
 import Button from "../Button";
@@ -62,10 +61,18 @@ export default function NavBar() {
       paddingRight: { xs: '24px', sm: '0px' }
     }}>
       <Icon name="space" />
-      <Button onClick={() => setShowModal(true)} styleSheet={{ display: { xs: 'flex', sm: 'none' } }}>
+      <Button 
+        onClick={() => setShowModal(true)}
+        styleSheet={{ 
+          display: { xs: 'flex', sm: 'none' }, 
+          backgroundColor: 'transparent',
+          hover: {
+            backgroundColor: 'transparent'
+          }
+        }}>
         <Icon name="menu" styleSheet={{ color: theme.colors.secondary }} viewBox={16} />
       </Button>
-      {showModal && <Modal title="modal" onClose={() => setShowModal(false)}><Links linkStyles={linkModalStyles} numberStyles={numberModalStyles}/></Modal>}
+      {showModal && <Modal onClose={() => setShowModal(false)}><Links linkStyles={linkModalStyles} numberStyles={numberModalStyles}/></Modal>}
       <Box styleSheet={{
         width: { xs: '20vw', lg: '22vw', xl: '32vw' },
         borderBottom: '1px solid #FFFFFF',
