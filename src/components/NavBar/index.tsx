@@ -56,9 +56,9 @@ export default function NavBar() {
       justifyContent: 'space-between',
       width: '100%',
       position: 'absolute',
-      paddingTop: { xs: '24px', sm: '0px', lg: '40px' },
-      paddingLeft: { xs: '24px', md: '39px', lg: '55px' },
-      paddingRight: { xs: '24px', sm: '0px' }
+      paddingTop: { xs: '24px', sm: '0px', md: '40px', lg: '40px' },
+      paddingLeft: { xs: '24px', sm: '24px', md: '39px', lg: '55px' },
+      paddingRight: { xs: '24px', sm: '0px', md: '0px', lg: '0px' }
     }}>
       <Icon name="space" />
       <Button 
@@ -74,21 +74,21 @@ export default function NavBar() {
       </Button>
       {showModal && <Modal onClose={() => setShowModal(false)}><Links linkStyles={linkModalStyles} numberStyles={numberModalStyles}/></Modal>}
       <Box styleSheet={{
-        width: { xs: '20vw', lg: '22vw', xl: '32vw' },
         borderBottom: '1px solid #FFFFFF',
         opacity: '0.25',
         position: 'relative',
         left: '5%',
         zIndex: 1,
+        width: { xs: '20vw', lg: '22vw', xl: '32vw' },
         display: { xs: 'none', lg: 'flex', xl: 'flex' }
       }} />
       <Box styleSheet={{
         flexDirection: 'row',
-        paddingHorizontal: { xs: '46px', lg: '100px', xl: '145px' },
-        gap: { xs: '37px', lg: '48px' },
         backgroundColor: 'rgba(255, 255, 255, 0.04)',
         backdropFilter: 'blur(40.7742px)',
-        display: { xs: 'none', sm: 'flex' }
+        paddingHorizontal: { xs: '46px', sm: '46px', lg: '100px', xl: '145px' },
+        gap: { xs: '37px', sm: '37px', lg: '48px', xl: '48px' },
+        display: { xs: 'none', sm: 'flex', lg: 'flex', xl: 'flex' }
       }}>
         <Links linkStyles={linkStyles} numberStyles={numberStyles}/>
       </Box>

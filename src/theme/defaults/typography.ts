@@ -49,6 +49,21 @@ export const typography = {
       fontFamily: "'Barlow Condensed', sans-serif",
       fontSize: '14px',
     },
+    tabText: {
+      fontFamily: "'Barlow Condensed', sans-serif",
+      letterSpacing: {
+        xs: '2.36px',
+        sm: '2.7px'
+      },
+      lineHeight: {
+        xs: '16.8px',
+        sm: '19.2px'
+      },
+      fontSize: {
+        xs: '14px',
+        sm: '16px'
+      }
+    },
     navText: {
       letterSpacing: '2.7px',
       fontFamily: "'Barlow Condensed', sans-serif",
