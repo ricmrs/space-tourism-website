@@ -75,6 +75,7 @@ export const typography = {
     },
     body: {
       textTransform: 'normal',
+      fontFamily: "'Barlow Condensed', sans-serif",
       fontSize: {
         xs: '15px',
         sm: '16px',

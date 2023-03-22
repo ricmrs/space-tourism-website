@@ -19,17 +19,18 @@ export default function HomePage() {
       paddingBottom: '81px',
       paddingRight: '24px',
       flexDirection: { xs: 'column', sm: 'column', lg: 'row', xl: 'row' },
-      paddingLeft: { xs: '24px', sm: '24px', lg: '165px', xl: '165px' },
-      paddingTop: { xs: '112px', sm: '202px', lg: '387px', xl: '387px' },
-      gap: { xs: '80px', sm: '80px', lg: '12vw', xl: '20vw' }
+      paddingLeft: { xs: '24px', sm: '24px', lg: '125px', xl: '165px' },
+      paddingTop: { xs: '112px', sm: '202px', lg: '280px', xl: '340px' },
+      gap: { xs: '80px', sm: '80px', lg: '10vw', xl: '20vw' }
     }}>
       <Box styleSheet={{
-        width: { xs: '325px', sm: '450px'},
+        width: { xs: '325px', sm: '450px', lg: '450px' },
+        alignItems: { xs: 'center', sm: 'center', lg: 'flex-start' },
         textAlign: 'center',
       }}>
         <Text variant="heading5" colorVariant="secondary">So, you want to travel to</Text>
         <Text variant="heading1">Space</Text>
-        <Text variant="body" colorVariant="secondary" styleSheet={{ textAlign: { xs: 'center', md: 'justify'} }}>
+        <Text variant="body" colorVariant="secondary" styleSheet={{ textAlign: { xs: 'center', lg: 'justify'} }}>
           Let’s face it; if you want to go to space, you might as well genuinely go to outer space and not hover kind of on the edge of it. Well sit back, and relax because we’ll give you a truly out of this world experience!
         </Text>
       </Box>

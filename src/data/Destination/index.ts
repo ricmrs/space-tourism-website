@@ -1,6 +1,6 @@
 import { IDestination } from "./IDestination";
 
-export const destination: IDestination[] = [
+export const destinations: IDestination[] = [
   {
     id: 1,
     name: 'Moon',
