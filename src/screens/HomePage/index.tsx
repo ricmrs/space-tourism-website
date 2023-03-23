@@ -8,7 +8,8 @@ export default function HomePage() {
       backgroundImage: {
         xs: "url('assets/home/background-home-mobile.jpg')",
         sm: "url('assets/home/background-home-tablet.jpg')",
-        lg: "url('assets/home/background-home-desktop.jpg')"
+        lg: "url('assets/home/background-home-desktop.jpg')",
+        xl: "url('assets/home/background-home-desktop.jpg')"
       },
       backgroundSize: 'cover',
       backgroundRepeat: 'no-repeat',

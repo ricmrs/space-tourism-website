@@ -21,6 +21,7 @@ export default function DestinationPage({ destinations }: { destinations: IDesti
       backgroundImage: {
         xs: "url('assets/destination/background-destination-mobile.jpg')",
         sm: "url('assets/destination/background-destination-tablet.jpg')",
+        md: "url('assets/destination/background-destination-tablet.jpg')",
         lg: "url('assets/destination/background-destination-desktop.jpg')"
       },
       backgroundSize: 'cover',
@@ -58,7 +59,7 @@ export default function DestinationPage({ destinations }: { destinations: IDesti
       <Box
         styleSheet={{
           alignItems: 'center',
-          flexDirection: { lg: 'row' },
+          flexDirection: { lg: 'row', xl: 'row' },
           gap: { lg: '5vw', xl: '15vw'}
         }}>
         <Image

@@ -16,7 +16,7 @@ export default function NavBar() {
     styleSheet: {
       flexDirection: 'row',
       gap: '10px',
-      height: '96px',
+      height: { sm: '70px', md: '96px'},
       alignItems: 'center',
       hover: {
         borderBottom: '3px solid #979797',
@@ -53,9 +53,9 @@ export default function NavBar() {
     <Box tag="nav" styleSheet={{
       flexDirection: 'row',
       alignItems: 'center',
-      justifyContent: 'space-between',
       width: '100%',
       position: 'absolute',
+      justifyContent: 'space-between',
       paddingTop: { xs: '24px', sm: '0px', md: '40px', lg: '40px' },
       paddingLeft: { xs: '24px', sm: '24px', md: '39px', lg: '55px' },
       paddingRight: { xs: '24px', sm: '0px', md: '0px', lg: '0px' }
@@ -79,16 +79,17 @@ export default function NavBar() {
         position: 'relative',
         left: '5%',
         zIndex: 1,
-        width: { xs: '20vw', lg: '22vw', xl: '32vw' },
+        flexGrow: 1,
         display: { xs: 'none', lg: 'flex', xl: 'flex' }
       }} />
       <Box styleSheet={{
         flexDirection: 'row',
         backgroundColor: 'rgba(255, 255, 255, 0.04)',
         backdropFilter: 'blur(40.7742px)',
-        paddingHorizontal: { xs: '46px', sm: '46px', lg: '100px', xl: '145px' },
-        gap: { xs: '37px', sm: '37px', lg: '48px', xl: '48px' },
-        display: { xs: 'none', sm: 'flex', lg: 'flex', xl: 'flex' }
+        paddingHorizontal: { xs: '20px', sm: '20px', md: '46px', lg: '100px', xl: '160px' },
+        gap: { xs: '25px', sm: '25px', md: '37px', lg: '45px', xl: '45px' },
+        display: { xs: 'none', sm: 'flex', md: 'flex', lg: 'flex', xl: 'flex' },
+        justifyItem: 'flex-end'
       }}>
         <Links linkStyles={linkStyles} numberStyles={numberStyles}/>
       </Box>

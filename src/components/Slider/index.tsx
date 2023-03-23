@@ -13,26 +13,30 @@ export default function Slider({ items, onClick, currentItem }: SliderProps){
     <BaseComponent
       as="ul"
       styleSheet={{
-        flexDirection: 'row'
+        flexDirection: 'row',
+        gap: '16px'
       }}
     >
       {items.map(item => (
         <BaseComponent
-          as="li" 
+          as="li"
+          tabIndex="0" 
           key={item.name}
           onClick={onClick}
           data={item.name} 
           styleSheet={{
             borderRadius: '100%',
-            width: '10px',
-            height: '10px',
+            width: { xs: '10px', lg: '15px' },
+            height: { xs: '10px', lg: '15px' },
             hover: {
-              backgroundColor: '#979797',
+              opacity: '0.5'
             },
             focus: {
-              backgroundColor: '#FFFFFF',
+              opacity: `${currentItem.name === item.name ? '1' : '0.5'}`
             },
-            backgroundColor: `${currentItem.name === item.name ? '#FFFFFF' : '#979797'}` 
+            cursor: 'pointer',
+            backgroundColor: '#FFFFFF',
+            opacity: `${currentItem.name === item.name ? '1' : '0.17'}`, 
           }}
         >
         </BaseComponent>
