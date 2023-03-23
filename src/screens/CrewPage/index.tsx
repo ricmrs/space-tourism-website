@@ -1,5 +1,6 @@
 import Box from "@/components/Box";
 import Image from "@/components/Image";
+import Slider from "@/components/Slider";
 import Tabs from "@/components/Tabs";
 import Text from "@/components/Text";
 import { ICrew, IMember } from "@/data/Crew/ICrew";
@@ -12,7 +13,7 @@ export default function CrewPage({ crew }: { crew: ICrew }) {
   const [member, setMember] = useState<IMember>(crew[0]);
 
   const handleClick = (e: MouseEvent<Element, globalThis.MouseEvent>) => {
-    const eventTargetName = e.currentTarget.textContent;
+    const eventTargetName = e.currentTarget.attributes.getNamedItem('data')?.value;
     const currentMember = crew.find(member => member.name === eventTargetName)
     setMember(currentMember!)
   }
@@ -80,19 +81,7 @@ export default function CrewPage({ crew }: { crew: ICrew }) {
         <Box styleSheet={{
           alignItems: { xs: 'center', lg: 'flex-start' },
         }}>
-          <Tabs
-            items={crew}
-            currentItem={member}
-            onClick={handleClick}
-            variant="tabText"
-            styleSheet={{
-              color: theme.colors.secondary,
-              gap: '27px',
-              textTransform: 'uppercase',
-              height: { xs: '28px', sm: '34px' },
-              marginBottom: { xs: '20px', sm: '32px' },
-            }}
-          />
+          <Slider items={crew} currentItem={member} onClick={handleClick}/>
           <Text variant="heading5" styleSheet={{ opacity: '0.5' }}>{member.role}</Text>
           <Text variant="heading3">{member.name}</Text>
           <Text
