@@ -1,4 +1,6 @@
-export interface IDestination {
+import { StyleSheet } from "@/theme/StyleSheet";
+
+export interface ITechnology {
   id: number;
   name: string;
   image: {
@@ -12,6 +14,4 @@ export interface IDestination {
     alt: string;
   };
   description: string;
-  avgDistance: string;
-  travelTime: string;
 }

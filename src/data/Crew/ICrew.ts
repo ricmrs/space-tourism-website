@@ -2,7 +2,13 @@ export interface IMember {
   id: number;
   name: string;
   image: {
-    src: string;
+    srcset:  {
+      xs: string;
+      sm?: string;
+      md?: string;
+      lg?: string;
+      xl?: string;
+    }
     alt: string;
   };
   role: string;

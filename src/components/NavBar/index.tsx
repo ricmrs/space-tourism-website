@@ -103,7 +103,7 @@ const Links = ({ linkStyles, numberStyles }: StyleSheet) => {
       <Link href="/" variant="navText" {...linkStyles}><Text variant="navText" {...numberStyles}>00</Text>Home</Link>
       <Link href="/destination" variant="navText" {...linkStyles}><Text variant="navText" {...numberStyles}>01</Text> Destination</Link>
       <Link href="/crew" variant="navText" {...linkStyles}><Text variant="navText" {...numberStyles}>02</Text> Crew</Link>
-      <Link href="/tecnhology" variant="navText" {...linkStyles}><Text variant="navText" {...numberStyles}>03</Text> Tecnhology</Link>
+      <Link href="/technology" variant="navText" {...linkStyles}><Text variant="navText" {...numberStyles}>03</Text> Technology</Link>
     </>
   )
 }

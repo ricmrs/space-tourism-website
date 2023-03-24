@@ -63,8 +63,8 @@ export default function DestinationPage({ destinations }: { destinations: IDesti
           gap: { lg: '5vw', xl: '15vw'}
         }}>
         <Image
-          src={destination?.image.src!}
-          alt={destination?.image.alt!}
+          srcset={destination.image.srcset}
+          alt={destination.image.alt}
           styleSheet={{
             height: { xs: '170px', sm: '300px', lg: '445px' },
             width: { xs: '170px', sm: '300px', lg: '445px' },
@@ -87,7 +87,7 @@ export default function DestinationPage({ destinations }: { destinations: IDesti
               marginBottom: { xs: '20px', sm: '32px' },
             }}
           />
-          <Text variant="heading2">{destination?.name}</Text>
+          <Text variant="heading2">{destination.name}</Text>
           <Text
             variant="body"
             colorVariant="secondary"

@@ -2,26 +2,19 @@ import Box from "@/components/Box";
 import Image from "@/components/Image";
 import Slider from "@/components/Slider";
 import Text from "@/components/Text";
-import { ICrew, IMember } from "@/data/Crew/ICrew";
+import { ITechnology } from "@/data/Technology/ITechnlogy";
+import { useState } from "react";
 
-import { MouseEvent, useState } from "react";
-
-export default function CrewPage({ crew }: { crew: ICrew }) {
-  const [member, setMember] = useState<IMember>(crew[0]);
-
-  const handleClick = (e: MouseEvent<Element, globalThis.MouseEvent>) => {
-    const eventTargetName = e.currentTarget.attributes.getNamedItem('data')?.value;
-    const currentMember = crew.find(member => member.name === eventTargetName)
-    setMember(currentMember!)
-  }
+export default function TechnologyPage({ technologys }: { technologys: ITechnology[] }) {
+  const [technology, setTechnology] = useState<ITechnology>(technologys[0]);
 
   return (
     <Box tag="main" styleSheet={{
       backgroundImage: {
-        xs: "url('assets/crew/background-crew-mobile.jpg')",
-        sm: "url('assets/crew/background-crew-tablet.jpg')",
-        md: "url('assets/crew/background-crew-tablet.jpg')",
-        lg: "url('assets/crew/background-crew-desktop.jpg')"
+        xs: "url('assets/technology/background-technology-mobile.jpg')",
+        sm: "url('assets/technology/background-technology-tablet.jpg')",
+        md: "url('assets/technology/background-technology-tablet.jpg')",
+        lg: "url('assets/technology/background-technology-desktop.jpg')"
       },
       backgroundSize: 'cover',
       backgroundRepeat: 'no-repeat',
@@ -51,9 +44,9 @@ export default function CrewPage({ crew }: { crew: ICrew }) {
               fontWeight: '700',
               opacity: '0.25'
             }}>
-            02
+            03
           </Text>
-          Meet your crew
+          Space launch 101
         </Text>
       </Box>
       <Box
@@ -61,21 +54,20 @@ export default function CrewPage({ crew }: { crew: ICrew }) {
           alignItems: 'center',
           flexDirection: { xs: 'column', sm: 'column-reverse', lg: 'row-reverse',xl: 'row-reverse' },
           gap: { xs: '32px', sm: '32px', lg: '0px', xl: '0px' },
-          minWidth: { xs: 'auto', sm: 'auto', lg: 'auto', xl: '1114px'},
+          minWidth: { xs: '100%', sm: 'auto', lg: 'auto', xl: '1114px'},
           justifyContent: { xs: 'normal', sm: 'normal', lg: 'normal', xl: 'space-between'}
         }}>
         <Box
           styleSheet={{
             alignItems: 'center',
-            width: { xs: '90%', sm: '90%', lg: 'auto' },
-            borderBottom: { xs: '1px solid #979797', sm: 'none', lg: 'none' }
+            width: { xs: '100%', sm: '90%', lg: 'auto' },
           }}>
           <Image
-            srcset={member.image.srcset}
-            alt={member.image.alt}
+            srcset={technology.image.srcset}
+            alt={technology.image.alt}
             styleSheet={{
-              height: { xs: '222px', sm: '402px', md: '572px', lg: '572px' },
-              width: { xs: 'auto', sm: 'auto', md: 'auto', lg: '500px' }
+              height: { xs: '170px', sm: '402px', md: '572px', lg: '572px' },
+              width: { xs: '100%', sm: 'auto', md: 'auto', lg: '500px' }
             }}
           />
         </Box>
@@ -87,14 +79,14 @@ export default function CrewPage({ crew }: { crew: ICrew }) {
             width: { xs: 'auto', sm: '458px', md: '620px', lg: '458px', xl: '620px' },
             flexDirection: { xs: 'column', sm: 'column-reverse', md: 'column-reverse', lg: 'column-reverse', xl: 'column-reverse' },
           }}>
-          <Slider items={crew} currentItem={member} onClick={handleClick} />
+          {/* <Slider items={crew} currentItem={member} onClick={handleClick} /> */}
           <Box styleSheet={{
             gap: '8px',
             alignItems: { xs: 'center', lg: 'flex-start' },
             minHeight: { xs: 'auto', lg: '375px'}
           }}>
-            <Text variant="heading4" styleSheet={{ opacity: '0.5' }}>{member.role}</Text>
-            <Text variant="heading3" styleSheet={{ marginBottom: '8px' }}>{member.name}</Text>
+            <Text variant="tabText" colorVariant="secondary" styleSheet={{ opacity: '0.5' }}>The technology...</Text>
+            <Text variant="heading3" styleSheet={{ marginBottom: '8px' }}>{technology.name}</Text>
             <Text
               variant="body"
               colorVariant="secondary"
@@ -103,7 +95,7 @@ export default function CrewPage({ crew }: { crew: ICrew }) {
                 height: { xs: '100px', sm: '125px', lg: '182px' },
                 textAlign: { xs: 'center', sm: 'center', lg: 'left' },
               }}>
-              {member.description}
+              {technology.description}
             </Text>
           </Box>
         </Box>
