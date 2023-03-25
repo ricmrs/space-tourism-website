@@ -2,14 +2,19 @@ import { navigation } from "@/data/NavBar";
 import { INavigation } from "@/data/NavBar/INavigation";
 import { StyleSheet } from "@/theme/StyleSheet";
 import { useTheme } from "@/theme/ThemeProvider";
+import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import Box from "../Box";
 import Button from "../Button";
 import Icon from "../Icon";
 import Link from "../Link";
-import Modal from "../Modal";
 import Text from "../Text";
+
+const Modal = dynamic(() => import('../Modal'), {
+  ssr: false,
+});
+
 
 export default function NavBar() {
   const theme = useTheme();
