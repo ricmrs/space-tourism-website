@@ -64,6 +64,23 @@ export const typography = {
         sm: '16px'
       }
     },
+    sliderText: {
+      fontSize: {
+        xs: '16px',
+        sm: '24px',
+        lg: '32px'
+      },
+      letterSpacing: {
+        xs: '1px',
+        md: '1.5px',
+        lg: '2px'
+      },
+      lineHeight: {
+        xs: '18px',
+        md: '27.5px',
+        lg: '36.67px'
+      }
+    },
     navText: {
       letterSpacing: '2.7px',
       fontFamily: "'Barlow Condensed', sans-serif",

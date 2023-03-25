@@ -1,46 +1,72 @@
 import { BaseComponent } from "@/theme/BaseComponent";
+import { StyleSheet } from "@/theme/StyleSheet";
+import { useTheme } from "@/theme/ThemeProvider";
 import { MouseEvent } from "react";
+import Text from "../Text";
+import { createVariant } from "./sliderStyle";
 
-interface SliderProps {
+export interface SliderProps {
   items: { name: string }[];
   currentItem: { name: string };
-  styleSheet?: StyleSheet;
+  type: 'null' | 'number';
+  styleSheetSlider?: StyleSheet;
+  styleSheetItem?: StyleSheet;
+  children?: React.ReactNode;
   onClick: (e: MouseEvent) => void;
 }
 
-export default function Slider({ items, onClick, currentItem }: SliderProps){
+export default function Slider({
+  items,
+  currentItem,
+  type,
+  children,
+  styleSheetSlider,
+  styleSheetItem,
+  onClick,
+  ...props
+}: SliderProps) {
+  const theme= useTheme();
   return (
     <BaseComponent
       as="ul"
       styleSheet={{
         flexDirection: 'row',
-        gap: '16px'
+        gap: '16px',
+        ...styleSheetSlider
       }}
     >
-      {items.map(item => (
-        <BaseComponent
-          as="li"
-          tabIndex="0" 
-          key={item.name}
-          onClick={onClick}
-          data={item.name} 
-          styleSheet={{
-            borderRadius: '100%',
-            width: { xs: '10px', lg: '15px' },
-            height: { xs: '10px', lg: '15px' },
-            hover: {
-              opacity: '0.5'
-            },
-            focus: {
-              opacity: `${currentItem.name === item.name ? '1' : '0.5'}`
-            },
-            cursor: 'pointer',
-            backgroundColor: '#FFFFFF',
-            opacity: `${currentItem.name === item.name ? '1' : '0.17'}`, 
-          }}
-        >
-        </BaseComponent>
-      ))}
+      {items.map((item, index) => {
+        const styleType = createVariant(theme, item, currentItem, type)
+        return (
+          <BaseComponent
+            as="li"
+            tabIndex="0"
+            key={item.name}
+            onClick={onClick}
+            data={item.name}
+            styleSheet={{
+              borderRadius: '100%',
+              cursor: 'pointer',
+              backgroundColor: '#FFFFFF',
+              ...styleType,
+              ...styleSheetItem,
+            }}
+            {...props}
+          >
+            {type === 'number' ? 
+              <Text
+                variant="sliderText"
+                styleSheet={{ color: 'inherit'}}
+              >
+                {index+1}
+              </Text> : ''}
+          </BaseComponent>
+        )
+      })}
     </BaseComponent>
   )
+}
+
+Slider.defaultProps  = {
+  type: 'null'
 }

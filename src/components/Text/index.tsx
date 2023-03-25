@@ -24,16 +24,6 @@ const Text = React.forwardRef(({
   const theme = useTheme();
   const textVariant = theme.typography.variants[variant!];
 
-  const currentColorSet = {
-    color: theme.colors[colorVariant!],
-    hover: {
-      color: theme.colors[colorVariant!],
-    },
-    focus: {
-      color: theme.colors[colorVariant!],
-    }
-  };
-
   return (
     <BaseComponent
       as={tag}
@@ -42,21 +32,9 @@ const Text = React.forwardRef(({
         textTransform: theme.typography.textTransform,
         ...textVariant,
         ...colorVariantEnabled && {
-          color: currentColorSet.color,
+          color: theme.colors[colorVariant!],
         },
         ...styleSheet,
-        hover: {
-          ...styleSheet?.hover,
-          ...colorVariantEnabled && {
-            color: currentColorSet.focus.color,
-          }
-        },
-        focus: {
-          ...styleSheet?.focus,
-          ...colorVariantEnabled && {
-            color: currentColorSet.focus.color,
-          }
-        },
       }}
       {...props}
     />
