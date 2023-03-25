@@ -42,6 +42,7 @@ export default function HomePage() {
         styleSheet={{
           alignSelf: 'center' 
         }}
+        href='/destination'
       >
         <Text colorVariant="primary" variant="heading4">Explore</Text>
       </Button>

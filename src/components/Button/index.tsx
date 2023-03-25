@@ -19,7 +19,8 @@ export default function Button({
   variant,
   enablePulseEffect,
   type,
-  onClick
+  onClick,
+  ...props
 }: ButtonProps) {
   const theme = useTheme();
   const buttonType = type ? buttonStyle[type] : {}
@@ -41,6 +42,7 @@ export default function Button({
       }}
       enablePulseEffect={enablePulseEffect}
       onClick={onClick}
+      {...props}
     >
       {children}
     </ButtonBase>

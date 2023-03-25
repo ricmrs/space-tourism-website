@@ -13,6 +13,7 @@ interface LinkProps {
   variant?: ThemeTypographyVariants;
   colorVariant?: 'primary' | 'secondary' | 'tertiary';
   colorVariantEnabled?: boolean;
+  onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
 const Link = React.forwardRef(({
@@ -21,11 +22,11 @@ const Link = React.forwardRef(({
   colorVariant,
   styleSheet,
   colorVariantEnabled,
+  onClick,
   ...props
 }:LinkProps, ref) => {
   const theme = useTheme();
   const isIExternalLink = href.startsWith('http');
-
   const currentColorSet = {
     color: theme.colors[colorVariant!],
     hover: {
@@ -41,6 +42,7 @@ const Link = React.forwardRef(({
     ref,
     children,
     href,
+    onClick,
     styleSheet: {
       textDecoration: 'none',
       ...colorVariantEnabled && {

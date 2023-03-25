@@ -4,15 +4,17 @@ import Slider from "@/components/Slider";
 import Text from "@/components/Text";
 import { ICrew, IMember } from "@/data/Crew/ICrew";
 
-import { MouseEvent, useState } from "react";
+import { useState } from "react";
 
 export default function CrewPage({ crew }: { crew: ICrew }) {
   const [member, setMember] = useState<IMember>(crew[0]);
 
-  const handleClick = (e: MouseEvent<Element, globalThis.MouseEvent>) => {
-    const eventTargetName = e.currentTarget.attributes.getNamedItem('data')?.value;
-    const currentMember = crew.find(member => member.name === eventTargetName)
-    setMember(currentMember!)
+  const handleClick = (e: React.KeyboardEvent<HTMLButtonElement> & React.MouseEvent<HTMLButtonElement>) => {
+    if (e.key === 'Enter' || e.type === 'click') {
+      const eventTargetName = e.currentTarget.attributes.getNamedItem('data')?.value;
+      const currentMember = crew.find(member => member.name === eventTargetName)
+      setMember(currentMember!)
+    }
   }
 
   return (
@@ -59,10 +61,10 @@ export default function CrewPage({ crew }: { crew: ICrew }) {
       <Box
         styleSheet={{
           alignItems: 'center',
-          flexDirection: { xs: 'column', sm: 'column-reverse', lg: 'row-reverse',xl: 'row-reverse' },
+          flexDirection: { xs: 'column', sm: 'column-reverse', lg: 'row-reverse', xl: 'row-reverse' },
           gap: { xs: '32px', sm: '32px', lg: '0px', xl: '0px' },
-          minWidth: { xs: 'auto', sm: 'auto', lg: 'auto', xl: '1114px'},
-          justifyContent: { xs: 'normal', sm: 'normal', lg: 'normal', xl: 'space-between'}
+          minWidth: { xs: 'auto', sm: 'auto', lg: 'auto', xl: '1114px' },
+          justifyContent: { xs: 'normal', sm: 'normal', lg: 'normal', xl: 'space-between' }
         }}>
         <Box
           styleSheet={{
@@ -91,7 +93,7 @@ export default function CrewPage({ crew }: { crew: ICrew }) {
           <Box styleSheet={{
             gap: '8px',
             alignItems: { xs: 'center', lg: 'flex-start' },
-            minHeight: { xs: 'auto', lg: '375px'}
+            minHeight: { xs: 'auto', lg: '375px' }
           }}>
             <Text variant="heading4" styleSheet={{ opacity: '0.5' }}>{member.role}</Text>
             <Text variant="heading3" styleSheet={{ marginBottom: '8px' }}>{member.name}</Text>

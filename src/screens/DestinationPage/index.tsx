@@ -3,17 +3,19 @@ import Image from "@/components/Image";
 import Text from "@/components/Text";
 import Tabs from "@/components/Tabs";
 import { IDestination } from "@/data/Destination/IDestination";
-import { MouseEvent, useState } from "react";
+import { useState } from "react";
 import { useTheme } from "@/theme/ThemeProvider";
 
 export default function DestinationPage({ destinations }: { destinations: IDestination[] }) {
   const theme = useTheme();
   const [destination, setDestination] = useState<IDestination>(destinations[0]);
 
-  const handleClick = (e: MouseEvent<Element, globalThis.MouseEvent>) => {
-    const eventTargetName = e.currentTarget.textContent;
-    const currentDestination = destinations.find(destination => destination.name === eventTargetName)
-    setDestination(currentDestination!)
+  const handleClick = (e: React.MouseEvent<HTMLButtonElement> & React.KeyboardEvent<HTMLButtonElement>) => {
+    if (e.key === 'Enter' || e.type === 'click') {
+      const eventTargetName = e.currentTarget.textContent;
+      const currentDestination = destinations.find(destination => destination.name === eventTargetName)
+      setDestination(currentDestination!)
+    }
   }
 
   return (
@@ -60,7 +62,7 @@ export default function DestinationPage({ destinations }: { destinations: IDesti
         styleSheet={{
           alignItems: 'center',
           flexDirection: { lg: 'row', xl: 'row' },
-          gap: { lg: '5vw', xl: '15vw'}
+          gap: { lg: '5vw', xl: '15vw' }
         }}>
         <Image
           srcset={destination.image.srcset}
@@ -72,7 +74,7 @@ export default function DestinationPage({ destinations }: { destinations: IDesti
           }}
         />
         <Box styleSheet={{
-          alignItems: { xs: 'center', lg: 'flex-start'},
+          alignItems: { xs: 'center', lg: 'flex-start' },
         }}>
           <Tabs
             items={destinations}
@@ -110,7 +112,7 @@ export default function DestinationPage({ destinations }: { destinations: IDesti
             <Box
               styleSheet={{
                 gap: '12px',
-                alignItems: { xs: 'center', lg: 'flex-start'},
+                alignItems: { xs: 'center', lg: 'flex-start' },
                 minWidth: { xs: '0px', sm: '160px', lg: '160px' }
               }}>
               <Text variant="subheading2" colorVariant="secondary">Avg. Distance</Text>
@@ -118,7 +120,7 @@ export default function DestinationPage({ destinations }: { destinations: IDesti
             </Box>
             <Box
               styleSheet={{
-                alignItems: { xs: 'center', lg: 'flex-start'},
+                alignItems: { xs: 'center', lg: 'flex-start' },
                 gap: '12px',
                 minWidth: { xs: '0px', sm: '145px', lg: '145px' }
               }}>

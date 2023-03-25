@@ -11,7 +11,7 @@ import { PulseEffect } from "./pulseEffect";
 // BaseComponent: tag
 // StyledComponent
 
-const StyledButton = styled(PulseEffect) <any>``;
+const StyledButton = styled(PulseEffect)<any>``;
 
 export interface ButtonBaseProps {
   href?: string;
@@ -56,7 +56,6 @@ export default function ButtonBase({
         isLink && router.push(href!);
         !isLink && props.onClick && props.onClick(event);
       }}
-      {...props}
     >
       {children}
     </StyledButton>

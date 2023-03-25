@@ -1,18 +1,7 @@
-export interface IMember {
-  id: number;
-  name: string;
-  image: {
-    srcset:  {
-      xs: string;
-      sm?: string;
-      md?: string;
-      lg?: string;
-      xl?: string;
-    }
-    alt: string;
-  };
+import { BaseInfo } from "../shared";
+
+export interface IMember extends BaseInfo {
   role: string;
-  description: string;
 }
 
 export type ICrew = IMember[]

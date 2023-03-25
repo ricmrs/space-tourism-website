@@ -3,15 +3,17 @@ import Image from "@/components/Image";
 import Slider from "@/components/Slider";
 import Text from "@/components/Text";
 import { ITechnology } from "@/data/Technology/ITechnlogy";
-import { MouseEvent, useState } from "react";
+import { useState } from "react";
 
 export default function TechnologyPage({ technologys }: { technologys: ITechnology[] }) {
   const [technology, setTechnology] = useState<ITechnology>(technologys[0]);
 
-  const handleClick = (e: MouseEvent<Element, globalThis.MouseEvent>) => {
-    const eventTargetName = e.currentTarget.attributes.getNamedItem('data')?.value;
-    const currentTechnology = technologys.find(technology => technology.name === eventTargetName)
-    setTechnology(currentTechnology!)
+  const handleClick = (e: React.KeyboardEvent<HTMLButtonElement> & React.MouseEvent<HTMLButtonElement>) => {
+    if (e.key === 'Enter' || e.type === 'click') {
+      const eventTargetName = e.currentTarget.attributes.getNamedItem('data')?.value;
+      const currentTechnology = technologys.find(technology => technology.name === eventTargetName)
+      setTechnology(currentTechnology!)
+    }
   }
   return (
     <Box tag="main" styleSheet={{
@@ -57,11 +59,11 @@ export default function TechnologyPage({ technologys }: { technologys: ITechnolo
       <Box
         styleSheet={{
           alignItems: 'center',
-          flexDirection: { xs: 'column', sm: 'column', lg: 'row-reverse',xl: 'row-reverse' },
+          flexDirection: { xs: 'column', sm: 'column', lg: 'row-reverse', xl: 'row-reverse' },
           gap: { xs: '32px', sm: '32px', lg: '0px', xl: '0px' },
-          minWidth: { xs: '100%', sm: 'auto', lg: '100%', xl: '100%'},
-          justifyContent: { xs: 'normal', sm: 'normal', lg: 'space-between', xl: 'space-between'},
-          paddingLeft: { xs: '0px', sm: '0px', lg: '30px', xl: '10vw'}
+          minWidth: { xs: '100%', sm: 'auto', lg: '100%', xl: '100%' },
+          justifyContent: { xs: 'normal', sm: 'normal', lg: 'space-between', xl: 'space-between' },
+          paddingLeft: { xs: '0px', sm: '0px', lg: '30px', xl: '10vw' }
         }}>
         <Box
           styleSheet={{
@@ -84,17 +86,17 @@ export default function TechnologyPage({ technologys }: { technologys: ITechnolo
             width: { xs: 'auto', sm: 'auto', md: 'auto', lg: '458px', xl: '620px' },
             flexDirection: { xs: 'column', sm: 'column', md: 'column', lg: 'row', xl: 'row' },
           }}>
-          <Slider 
-            items={technologys} 
-            currentItem={technology} 
-            type="number" 
-            onClick={handleClick} 
-            styleSheetSlider={{ flexDirection: { xs: 'row', lg: 'column' }}}
+          <Slider
+            items={technologys}
+            currentItem={technology}
+            type="number"
+            onClick={handleClick}
+            styleSheetSlider={{ flexDirection: { xs: 'row', lg: 'column' } }}
           />
           <Box styleSheet={{
             gap: '8px',
             alignItems: { xs: 'center', lg: 'flex-start' },
-            minHeight: { xs: 'auto', lg: '375px'}
+            minHeight: { xs: 'auto', lg: '375px' }
           }}>
             <Text variant="tabText" colorVariant="secondary" styleSheet={{ opacity: '0.5' }}>The technology...</Text>
             <Text variant="heading3" styleSheet={{ marginBottom: '8px' }}>{technology.name}</Text>

@@ -6,5 +6,5 @@ export { default as instagram } from './instagram';
 export { default as linkedin } from './linkedin';
 export { default as github } from './github';
 export { default as clock_fill } from './clock_fill';
-export { default as space } from './space';
+export { default as logo } from './logo';
 export { default as close } from './close';

@@ -14,7 +14,7 @@ export function createVariant(theme: Theme, item: item, currentItem: item, type:
         opacity: '0.5'
       },
       focus: {
-        opacity:  `${isCurrentItem ? '0.9' : '0.5'}`
+        opacity:  '0.5'
       },
       opacity: `${isCurrentItem ? '1' : '0.17'}`
     },
@@ -33,8 +33,8 @@ export function createVariant(theme: Theme, item: item, currentItem: item, type:
       },
       focus: {
         border: '1px solid #FFFFFF',
-        backgroundColor: `${isCurrentItem ? '#FFFFFFEC' : 'transparent'}`,
-        color: `${isCurrentItem ? theme.colors.primary : theme.colors.tertiary}`,
+        backgroundColor: 'transparent',
+        color: theme.colors.tertiary,
       }
     },
   };

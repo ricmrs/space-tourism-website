@@ -1,7 +1,6 @@
 import { BaseComponent } from "@/theme/BaseComponent";
 import { StyleSheet } from "@/theme/StyleSheet";
 import { useTheme } from "@/theme/ThemeProvider";
-import { MouseEvent } from "react";
 import Text from "../Text";
 import { createVariant } from "./sliderStyle";
 
@@ -12,7 +11,7 @@ export interface SliderProps {
   styleSheetSlider?: StyleSheet;
   styleSheetItem?: StyleSheet;
   children?: React.ReactNode;
-  onClick: (e: MouseEvent) => void;
+  onClick: (e: React.KeyboardEvent<HTMLButtonElement> & React.MouseEvent<HTMLButtonElement>) => void;
 }
 
 export default function Slider({
@@ -43,6 +42,7 @@ export default function Slider({
             tabIndex="0"
             key={item.name}
             onClick={onClick}
+            onKeyDown={onClick}
             data={item.name}
             styleSheet={{
               borderRadius: '100%',
