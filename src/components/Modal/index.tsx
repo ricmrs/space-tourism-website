@@ -58,7 +58,7 @@ function Modal({ onClose, children }: ModalProps) {
   }
 };
 
-const StyledModalBody = styled.div`
+const StyledModalBody = styled.nav`
   padding-top: 65px;
   display: flex;
   flex-direction: column;
