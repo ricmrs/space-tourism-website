@@ -75,7 +75,7 @@ export default function NavBar() {
       paddingLeft: { xs: '24px', sm: '24px', md: '39px', lg: '55px' },
       paddingRight: { xs: '24px', sm: '0px', md: '0px', lg: '0px' }
     }}>
-      <Button href="/" styleSheet={{ backgroundColor: 'transparent', alignSelf: 'center' }}><Icon name="logo" /></Button>
+      <Button href="/" styleSheet={{ backgroundColor: 'transparent', alignSelf: 'center' }} aria-label="Space Tourism Logo"><Icon name="logo" /></Button>
       <Button
         onClick={() => setShowModal(true)}
         styleSheet={{

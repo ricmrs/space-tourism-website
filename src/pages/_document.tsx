@@ -25,7 +25,7 @@ export default class MyDocument extends Document {
 
   render() {
     return (
-      <Html>
+      <Html lang="en">
         <Head>
           <link rel="shortcut icon" href="/assets/favicon-32x32.png" />
           <link rel="preconnect" href="https://fonts.googleapis.com" />
