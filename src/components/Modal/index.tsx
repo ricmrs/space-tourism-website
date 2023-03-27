@@ -38,7 +38,7 @@ function Modal({ onClose, children }: ModalProps) {
       <StyledModalWrapper ref={modalWrapperRef}>
         <StyledModal>
           <StyledModalHeader>
-            <Button href="#" onClick={handleCloseClick} styleSheet={{ backgroundColor: 'transparent' }}>
+            <Button onClick={handleCloseClick} styleSheet={{ backgroundColor: 'transparent' }}>
               <Icon name="close" styleSheet={{ color: '#D0D6F9', height: '24px', width: '24px' }} viewBox={28}/>
             </Button>
           </StyledModalHeader>
